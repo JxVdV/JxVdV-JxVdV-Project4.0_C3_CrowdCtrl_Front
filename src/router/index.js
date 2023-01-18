@@ -15,13 +15,13 @@ const routes = [
     component: () => import('../views/AboutView.vue')
   },
   {
-    path: '/api',
-    name: 'Api',
+    path: '/admin/home',
+    name: 'AdminHome',
     component: () => import('../views/ApiView.vue')
   },
   {
-    path: '/api/:id',
-    name: 'ApiDetails',
+    path: '/event/:id',
+    name: 'EventDetails',
     component: () => import('../views/ApiDetails.vue'),
     props: true,
   },

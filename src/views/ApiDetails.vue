@@ -1,6 +1,6 @@
 <template>
   <h1>API VIEW ID {{ id }}</h1>
-  <p>{{ movie.watched }}</p>
+  <p>{{ event.name }}</p>
 </template>
 
 <script>
@@ -9,16 +9,16 @@ export default {
   name: 'ApiDetails',
   methods: {
     getDetails() {
-      fetch(`https://localhost:44319/api/MovieWatches/${this.id}`)
+      fetch(`https://localhost:7100/api/Event/${this.id}`)
         .then((res) => res.json())
-        .then((data) => (this.movie = data))
-        .catch((err) => console.log('retrieve movie: ', err));
+        .then((data) => (this.event = data))
+        .catch((err) => console.log('retrieve event: ', err));
       // console.log('mounted')
     },
   },
   data() {
     // console.log('data')
-    return { movie: {} };
+    return { event: {} };
   },
   mounted() {
     this.getDetails();

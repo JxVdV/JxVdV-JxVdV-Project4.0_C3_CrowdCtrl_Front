@@ -1,35 +1,33 @@
 <template>
-  <h1>API VIEW</h1>
-  <div v-for="m in movies" :key="m">
-    <RouterLink
-      :to="{ name: 'ApiDetails', params: { id: m.id } }"
-      class="hover:underline"
-      >{{ m.id }} - {{ m.watched }}</RouterLink
-    >
+  <SearchBarComponent />
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6" >
+    <EventCardComponent v-for="e in events" :key="e.eventId" :event="e" class="col" />
   </div>
 </template>
 
 <script>
+import SearchBarComponent from '@/components/events/SearchBarComponent.vue';
+import EventCardComponent from '@/components/events/EventCardComponent.vue';
 export default {
-  name: 'Api',
+  name: 'AdminHome',
+  components: { SearchBarComponent, EventCardComponent },
 
   methods: {
-    GetData() {
-        fetch('https://localhost:44319/api/MovieWatches')
-      .then((res) => res.json())
-      .then((data) => (this.movies = data))
-      .catch((err) => console.log('retrieve movies: ', err));
-    }
+    GetEvents() {
+      fetch('https://localhost:7100/api/Event')
+        .then((res) => res.json())
+        .then((data) => (this.events = data))
+        .catch((err) => console.log('retrieve events: ', err));
+    },
   },
-  setup() {
-    
-  },
+  setup() {},
   data() {
     // console.log('data')
-    return { movies: [] };
+    return { events: [] };
   },
   mounted() {
-    this.GetData()
+    this.GetEvents();
     // console.log('mounted')
   },
 };

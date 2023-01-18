@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-black bg-opacity-90">
+  <div class="bg-black bg-opacity-40">
     <nav
       class="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center"
     >
@@ -35,10 +35,10 @@
           Home
         </router-link>
         <router-link
-          to="/api"
+          to="/admin/home"
           class="font-bold text-gray-100 hover:text-primary-orange"
         >
-          Api
+          Admin
         </router-link>
         <router-link
           to="/shouldRedirectToApi"

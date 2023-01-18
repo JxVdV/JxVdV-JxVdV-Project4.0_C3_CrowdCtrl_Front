@@ -20,11 +20,11 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #ffff;
 }
 
 #appColor {
-  background-color: black;
+  background-color: #1E1E1E;
 }
 
 nav a.router-link-exact-active {
